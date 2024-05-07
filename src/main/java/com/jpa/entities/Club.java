@@ -21,6 +21,9 @@ public class Club {
     @OneToOne(targetEntity = Coach.class, cascade = CascadeType.PERSIST)
     private Coach coach;
 
-    @OneToMany(targetEntity = Player.class, fetch = FetchType.LAZY)
+    @OneToMany(targetEntity = Player.class, fetch = FetchType.LAZY, mappedBy = "club")
     private List<Player> players;
+
+    @ManyToOne(targetEntity = FootballAssociation.class)
+    private FootballAssociation footballAssociation;
 }
